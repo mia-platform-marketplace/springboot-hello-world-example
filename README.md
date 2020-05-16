@@ -1,4 +1,4 @@
-# %CUSTOM_PLUGIN_CREATOR_USERNAME%
+# %CUSTOM_PLUGIN_SERVICE_NAME%
 
 Welcome to Java Spring Boot example service for Mia-Platform!
 
