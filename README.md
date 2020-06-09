@@ -1,4 +1,4 @@
-# %CUSTOM_PLUGIN_SERVICE_NAME%
+# mia_template_service_name_placeholder
 
 Welcome to Java Spring Boot example service for Mia-Platform!
 
