@@ -35,4 +35,4 @@ you should see the following message:
 {"message":"Ciao"}
 ```
 
-Congratulations! You have successfully learnt how to use our Node.js _Hello World_ Example on the DevOps Console!
+Congratulations! You have successfully learnt how to use our Springboot _Hello World_ Example on the DevOps Console!
