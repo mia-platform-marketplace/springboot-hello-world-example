@@ -1,107 +1,38 @@
-# mia_template_service_name_placeholder
+# Springboot Hello World Example walkthrough
 
-Welcome to Java Spring Boot example service for Mia-Platform!
+This walkthrough will explain you how to correctly create a microservice in Springboot that returns an hello message from the DevOps Console.
 
-## How to develop this service
+In order to do so, access to [Mia-Platform DevOps Console](https://console.cloud.mia-platform.eu/login), create a new project and go to the **Design** area.  
+From the Design area of your project select _Microservices_ and then create a new one, you have now reached [Mia-Platform Marketplace](https://docs.mia-platform.eu/development_suite/api-console/api-design/marketplace/)!  
+In the marketplace you will see a set of Examples and Templates that can be used to set-up microservices with a predefined and tested function.  
 
-This example jus expose hello endpoint.
+For this walkthrough select the following example: **Java Hello World**.
+Give your microservice the name you prefer, in this walkthrough we'll refer to it with the following name: **spring-hello**. Then, fill the other required fields and confirm that you want to create a microservice.  
+A more detailed description on how to create a Microservice can be found in [Microservice from template - Get started](https://docs.mia-platform.eu/development_suite/api-console/api-design/custom_microservice_get_started/#2-service-creation) section of Mia-Platform documentation.
 
-### Run locally
+In order to access to your new microservice it is necessary to create an endpoint that targets it.  
+In particular, in this walkthrough you will create an endpoint to your microservice *spring-hello*. To do so, from the Design area of your project select _Endpoints_ and then create a new endpoint.
+Now you need to choose a path for your endpoint and to connect this endpoint to your microservice. Give to your endpoint the following path: **/greetings**. Then, specify that you want to connect your endpoint to a microservice and, finally, select *spring-hello*.  
+Step 3 of [Microservice from template - Get started](https://docs.mia-platform.eu/development_suite/api-console/api-design/custom_microservice_get_started/#3-creating-the-endpoint) section of Mia-Platform documentation will explain in detail how to create an endpoint from the DevOps Console.
 
-To run locally this example just run the
+After having created an endpoint to your microservice you should save the changes that you have done to your project in the DevOps console.  
+Remember to choose a meaningful title for your commit (e.g "created service spring_hello"). After some seconds you will be prompted with a popup message which confirms that you have successfully saved all your changes.  
+Step 4 of [Microservice from template - Get started](https://docs.mia-platform.eu/development_suite/api-console/api-design/custom_microservice_get_started/#4-save-the-project) section of Mia-Platform documentation will explain how to correctly save the changes you have made on your project in the DevOps console.
 
-```bash
-mvn spring-boot:run
+Once all the changes that you have made are saved, you should deploy your project through the DevOps Console. Go to the **Deploy** area of the DevOps Console.  
+Once here select the environment and the branch you have worked on and confirm your choices clicking on the *deploy* button. When the deploy process is finished you will receveive a pop-up message that will inform you.  
+Step 5 of [Microservice from template - Get started](https://docs.mia-platform.eu/development_suite/api-console/api-design/custom_microservice_get_started/#5-deploy-the-project-through-the-api-console) section of Mia-Platform documentation will explain in detail how to correctly deploy your project.
+
+Now, if you launch the following command on your terminal (remember to replace `<YOUR_PROJECT_HOST>` with the real host of your project):
+
+```shell
+curl <YOUR_PROJECT_HOST>/greetings/hello
 ```
 
-To change server port
+you should see the following message:
 
-```bash
-mvn spring-boot:run -Dspring-boot.run.arguments=--server.port=8000
+```json
+{"message":"Ciao"}
 ```
 
-To launch tests locally
-
-```bash
-mvn test
-```
-
-To build it
-
-```bash
-mvn clean package
-```
-
-To force mvn package update
-
-```bash
-mvn clean install -U
-```
-
-### Routes
-
-The following routes are exposed
-
-- [http://localhost:3000/hello]() - hello controller
-- [http://localhost:3000/-/ready]() - the service is ready (used by k8s)
-- [http://localhost:3000/-/healthz]() - the service is healthy (used by k8s)
-- [http://localhost:3000/documentation/json]() - the Open API 3 specification
-
-### Tag new project version
-
-Please use the `tag.sh` to update the `pom.xml` project version and commit release to git.
-
-Respect the following syntax to invoke the script:
-
-```bash
-./tag.sh [options] [rc]
-```
-
-According to [semver](https://semver.org/), *options* could be:
-
-* _major_ version when you make incompatible API changes
-* _minor_ version when you add functionality in a backwards-compatible manner
-* _patch_ version when you make backwards-compatible bug fixes.
-
-According to Mia-Platform release process *rc* could be:
-
-* _rc_ add `-rc` to your release tag
-* omitted
-
-#### Promote `rc` release
-
-When your service is ready to production you can promote your rc version invoking the scritp with `promote` option.
-
-```bash
-./tag.sh promote
-```
-
-#### Push changes
-
-Don't forget to push commit and tag:
-
-```bash
-git push
-git push --tags
-```
-
-#### Examples
-
-Assuming your current version is `v1.2.3`
-
-|command   | result  |
-|---|---|
-|`./tag.sh major`   |`v2.0.0`   |
-|`./tag.sh minor`   |`v1.3.0`   |
-|`./tag.sh patch`   |`v1.2.4`   |
-|`./tag.sh major rc`   |`v2.0.0-rc`   |
-|`./tag.sh minor rc`   |`v1.3.0-rc`   |
-|`./tag.sh patch rc`   |`v1.2.4-rc`   |
-
-Assuming your current version is `v1.2.3-rc`
-
-|command   | result  |
-|---|---|
-|`./tag.sh promote`   |`v1.2.3`|
-
-
+Congratulations! You have successfully learnt how to use our Node.js _Hello World_ Example on the DevOps Console!
