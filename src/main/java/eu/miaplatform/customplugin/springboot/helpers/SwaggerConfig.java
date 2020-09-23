@@ -68,5 +68,4 @@ public class SwaggerConfig extends CPSwaggerConfig {
   public String getSelector() {
     return "eu.miaplatform.customplugin.springboot";
   }
-
 }
