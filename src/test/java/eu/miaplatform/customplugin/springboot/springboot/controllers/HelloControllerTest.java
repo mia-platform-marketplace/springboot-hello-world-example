@@ -23,7 +23,7 @@ public class HelloControllerTest {
                 .get("/hello")
                 .header("foo", "bar"))
                 .andExpect(status().isOk())
-                .andExpect(content().json("{'message':'Ciao'}"));
+                .andExpect(content().json("{'message':'Hello world!'}"));
     }
 
 }
