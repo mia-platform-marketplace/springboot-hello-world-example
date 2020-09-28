@@ -27,4 +27,4 @@ COPY --from=build /build .
 
 USER 1000
 
-CMD ["java", "-jar", "./application.jar"]
+CMD ["java", "-jar", "./application.jar", "-Xmx70m", "-Xms70m"]
