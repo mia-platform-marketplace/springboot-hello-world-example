@@ -46,8 +46,8 @@ public class HelloController extends CPStatusController {
   public ResponseEntity healthinessHandler(CPRequest cpRequest) {
     return customPluginService.addHandler(cpRequest, cpReq -> {
       CPStatusBody st = new CPStatusBody();
-      st.setStatus(CPStatusBody.KO);
-      return CPStatus.statusKo(st);
+      st.setStatus(CPStatusBody.OK);
+      return CPStatus.statusOk(st);
     });
   }
 
