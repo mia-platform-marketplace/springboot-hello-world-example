@@ -41,14 +41,4 @@ public class HelloController extends CPStatusController {
     logger.info("Hello world!");
     return new Hello("Hello world!");
   }
-
-  @Override
-  public ResponseEntity healthinessHandler(CPRequest cpRequest) {
-    return customPluginService.addHandler(cpRequest, cpReq -> {
-      CPStatusBody st = new CPStatusBody();
-      st.setStatus(CPStatusBody.KO);
-      return CPStatus.statusKo(st);
-    });
-  }
-
 }
