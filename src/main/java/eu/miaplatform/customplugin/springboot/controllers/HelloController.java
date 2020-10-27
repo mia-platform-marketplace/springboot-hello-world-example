@@ -16,13 +16,15 @@
 
 package eu.miaplatform.customplugin.springboot.controllers;
 
+import eu.miaplatform.customplugin.CustomPluginHeader;
 import eu.miaplatform.customplugin.springboot.*;
 import eu.miaplatform.customplugin.springboot.models.Hello;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import springfox.documentation.annotations.ApiIgnore;
+
+import java.util.List;
 
 import static eu.miaplatform.customplugin.springboot.CPConstants.CP_REQUEST;
 
@@ -34,11 +36,16 @@ public class HelloController extends CPStatusController {
   @ApiOperation(value = "Say hello")
   @ResponseBody
   public Hello sayHello(@ApiIgnore @ModelAttribute(CP_REQUEST) CPRequest cpRequest) {
+    String userId = cpRequest.getUserId();
 
-    cpRequest.getHeadersPropagator().getHeaders().forEach(header ->
-      logger.info("headerName: " + header.getName() + " - headerValue: " + header.getValue())
-    );
-    logger.info("Hello world!");
-    return new Hello("Hello world!");
+    List<CustomPluginHeader> list = cpRequest.getHeadersPropagator().getHeaders();
+    list.forEach(customPluginHeader -> logger.info("HEADER "+customPluginHeader.getName() + " VALUE " + customPluginHeader.getValue()));
+
+    logger.info("Hello world!" + userId);
+
+    if (userId == null || userId.equals("")) {
+      return new Hello("Hello world!");
+    }
+    return new Hello("Hello " + userId + "!");
   }
 }
