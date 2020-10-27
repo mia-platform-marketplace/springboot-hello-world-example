@@ -14,7 +14,7 @@ For this walkthrough select the following example: **Java Hello World**.
 Give your microservice the name you prefer, in this walkthrough we'll refer to it with the following name: **spring-hello**. Then, fill the other required fields and confirm that you want to create a microservice.  
 A more detailed description on how to create a Microservice can be found in [Microservice from template - Get started](https://docs.mia-platform.eu/development_suite/api-console/api-design/custom_microservice_get_started/#2-service-creation) section of Mia-Platform documentation.
 
-Please verify CPU and memory limits, for Java applications using Springboot we recommend at least
+Please verify CPU and memory limits, for Java applications using Springboot we recommend at least:
 
  * Memory: minimum 150Mi, maximum 300Mi
  * CPU: minimum 300m, maximum 500m
