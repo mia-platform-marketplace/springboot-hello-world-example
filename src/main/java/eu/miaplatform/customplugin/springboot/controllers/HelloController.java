@@ -36,7 +36,7 @@ public class HelloController extends CPStatusController {
   public Hello sayHello(@ApiIgnore @ModelAttribute(CP_REQUEST) CPRequest cpRequest) {
     String userId = cpRequest.getUserId();
     if (userId == null || userId.equals("")) {
-    	logger.info("Hello world " + userId + "!");
+          logger.info("Hello world " + userId + "!");
       	return new Hello("Hello world!");
     }
     return new Hello("Hello " + userId + "!");
