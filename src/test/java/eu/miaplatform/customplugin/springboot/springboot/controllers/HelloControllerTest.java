@@ -26,17 +26,6 @@ public class HelloControllerTest {
     }
 
     @Test
-    public void withUserId() throws Exception {
-        mvc.perform(
-                MockMvcRequestBuilders
-                        .get("/hello")
-                        .header("USERID_HEADER_KEY", "john.doe")
-        )
-            .andExpect(status().isOk())
-            .andExpect(content().json("{\"message\":\"Hello john.doe!\"}"));
-    }
-
-    @Test
     public void defaultReadinessRoute() throws Exception {
         mvc.perform(MockMvcRequestBuilders.get("/-/ready"))
             .andExpect(status().isOk())
