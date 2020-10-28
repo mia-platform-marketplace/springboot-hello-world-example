@@ -17,7 +17,7 @@ A more detailed description on how to create a Microservice can be found in [Mic
 > :warning:
 > Please verify **CPU and memory limits**, for Java applications using Springboot we recommend at least:
 > * Memory: minimum **150Mi**, maximum **300Mi**
-> * CPU: minimum **300m**, maximum **500m**
+> * CPU: minimum **30m**, maximum **1000m**
 
 ## Expose an endpoint to your microservice
 
