@@ -24,8 +24,6 @@ import io.swagger.annotations.ApiOperation;
 import org.springframework.web.bind.annotation.*;
 import springfox.documentation.annotations.ApiIgnore;
 
-import java.util.List;
-
 import static eu.miaplatform.customplugin.springboot.CPConstants.CP_REQUEST;
 
 @RestController
@@ -37,11 +35,7 @@ public class HelloController extends CPStatusController {
   @ResponseBody
   public Hello sayHello(@ApiIgnore @ModelAttribute(CP_REQUEST) CPRequest cpRequest) {
     String userId = cpRequest.getUserId();
-
-    List<CustomPluginHeader> list = cpRequest.getHeadersPropagator().getHeaders();
-    list.forEach(customPluginHeader -> logger.info("HEADER "+customPluginHeader.getName() + " VALUE " + customPluginHeader.getValue()));
-
-    logger.info("Hello world!" + userId);
+    logger.info("Hello world " + userId + "!");
 
     if (userId == null || userId.equals("")) {
       return new Hello("Hello world!");
