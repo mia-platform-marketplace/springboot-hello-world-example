@@ -16,11 +16,11 @@
 
 package eu.miaplatform.customplugin.springboot.controllers;
 
+import eu.miaplatform.customplugin.CustomPluginHeader;
 import eu.miaplatform.customplugin.springboot.*;
 import eu.miaplatform.customplugin.springboot.models.Hello;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import springfox.documentation.annotations.ApiIgnore;
 
@@ -34,21 +34,12 @@ public class HelloController extends CPStatusController {
   @ApiOperation(value = "Say hello")
   @ResponseBody
   public Hello sayHello(@ApiIgnore @ModelAttribute(CP_REQUEST) CPRequest cpRequest) {
+    String userId = cpRequest.getUserId();
+    if (userId == null || userId.equals("")) {
+      return new Hello("Hello world!");
+    }
 
-    cpRequest.getHeadersPropagator().getHeaders().forEach(header ->
-      logger.info("headerName: " + header.getName() + " - headerValue: " + header.getValue())
-    );
-    logger.info("Hello world!");
-    return new Hello("Hello world!");
+    logger.info("Hello world " + userId + "!");
+    return new Hello("Hello " + userId + "!");
   }
-
-  @Override
-  public ResponseEntity healthinessHandler(CPRequest cpRequest) {
-    return customPluginService.addHandler(cpRequest, cpReq -> {
-      CPStatusBody st = new CPStatusBody();
-      st.setStatus(CPStatusBody.KO);
-      return CPStatus.statusKo(st);
-    });
-  }
-
 }

@@ -14,6 +14,11 @@ For this walkthrough select the following example: **Java Hello World**.
 Give your microservice the name you prefer, in this walkthrough we'll refer to it with the following name: **spring-hello**. Then, fill the other required fields and confirm that you want to create a microservice.  
 A more detailed description on how to create a Microservice can be found in [Microservice from template - Get started](https://docs.mia-platform.eu/development_suite/api-console/api-design/custom_microservice_get_started/#2-service-creation) section of Mia-Platform documentation.
 
+> :warning:
+> Please verify **CPU and memory limits**, for Java applications using Springboot we recommend at least:
+> * Memory: minimum **150Mi**, maximum **300Mi**
+> * CPU: minimum **30m**, maximum **1000m**
+
 ## Expose an endpoint to your microservice
 
 In order to access to your new microservice it is necessary to create an endpoint that targets it.  
@@ -44,7 +49,7 @@ curl <YOUR_PROJECT_HOST>/greetings/hello
 you should see the following message:
 
 ```json
-{"message":"Ciao"}
+{"message":"Hello World!"}
 ```
 
 Congratulations! You have successfully learnt how to use our Springboot _Hello World_ Example on the DevOps Console!
