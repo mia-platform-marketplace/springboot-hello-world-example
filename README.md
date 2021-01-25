@@ -19,6 +19,17 @@ A more detailed description on how to create a Microservice can be found in [Mic
 > * Memory: minimum **150Mi**, maximum **300Mi**
 > * CPU: minimum **30m**, maximum **1000m**
 
+The created service will have automatically the following environment variables to work:
+
+- LOG_LEVEL: `{{LOG_LEVEL}}`
+- MICROSERVICE_GATEWAY_SERVICE_NAME: `microservice-gateway`
+- TRUSTED_PROXIES: `10.0.0.0/8,172.16.0.0/12,192.168.0.0/16`
+- HTTP_PORT: `3000`
+- USERID_HEADER_KEY: `miauserid`
+- GROUPS_HEADER_KEY: `miausergroups`
+- CLIENTTYPE_HEADER_KEY: `client-type`
+
+
 ## Expose an endpoint to your microservice
 
 In order to access to your new microservice it is necessary to create an endpoint that targets it.  
