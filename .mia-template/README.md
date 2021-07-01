@@ -8,7 +8,14 @@ This example jus expose hello endpoint.
 
 ### Run locally
 
-To run locally this example just run the
+Before running the service on your local machine you need to prepare the required environment variables
+
+```bash
+cp default.env local.env
+set -a; source local.env
+```
+
+To run locally this example just run the following command
 
 ```bash
 mvn spring-boot:run
