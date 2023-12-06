@@ -44,7 +44,7 @@ Step 2 of [Microservice from template - Get started](https://docs.mia-platform.e
 
 After having created an endpoint to your microservice you should save the changes that you have done to your project in the DevOps console.  
 Remember to choose a meaningful title for your commit (e.g "created service spring_hello"). After some seconds you will be prompted with a popup message which confirms that you have successfully saved all your changes.  
-Step 3 of [Microservice from template - Get started](https://docs.mia-platform.eu/docs/development_suite/api-console/api-design/custom_microservice_get_started#3-deploy-the-project) section of Mia-Platform documentation will explain how to correctly save the changes you have made on your project in the DevOps console.
+Step 3 of [Microservice from template - Get started](https://docs.mia-platform.eu/docs/development_suite/api-console/api-design/custom_microservice_get_started#3-save-the-project) section of Mia-Platform documentation will explain how to correctly save the changes you have made on your project in the DevOps console.
 
 ## Deploy
 
